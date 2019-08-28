@@ -48,7 +48,15 @@ namespace Elephantico
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             // MVS middleware component
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}"
+                    );
+            });
+
+       
         }
     }
 }
