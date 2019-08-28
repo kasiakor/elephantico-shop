@@ -1,4 +1,4 @@
-﻿@model Elephantico.ViewModels.HomeViewModel;
+﻿@model HomeViewModel;
 
     @*it will be replaced by the ViewStart Layout 
         @{ Layout = "_Layout"; }*@
@@ -13,8 +13,10 @@
         <div class="thumbnail">
             <img src="@ele.ImageThumbnailUrl" alt="" height="320"/>
             <div class="caption">
-                <h2>@ele.Name</h2>
                 <h3 class="pull-right">@ele.Price.ToString("c")</h3>
+                <h3>
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@ele.Id">@ele.Name</a>
+                </h3>
                 <p>@ele.ShortDescription</p>
             </div>
         </div>

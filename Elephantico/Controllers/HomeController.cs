@@ -36,14 +36,23 @@ namespace Elephantico.Controllers
         {
             
             // we pass data directly
-            var elpehaitems = _elephaitemRepository.GetAllElephaitems().OrderBy(e => e.Name);
+            var elephaitems = _elephaitemRepository.GetAllElephaitems().OrderBy(e => e.Name);
 
             var homeViewModel = new HomeViewModel()
             {
                 Title = "Welcome to Elephantico",
-                Elephaitems = elpehaitems.ToList()
+                Elephaitems = elephaitems.ToList()
             };
             return View(homeViewModel);
+        }
+
+        public IActionResult Details(int id)
+        {
+            var elephaitem = _elephaitemRepository.GetElephaitemById(id);
+            if (elephaitem == null)
+                return NotFound();
+            return View(elephaitem);
+
         }
     }
 }
