@@ -9,7 +9,7 @@ namespace Elephantico.Models
     public class AppDBContex : DbContext
     {
         // DbContext needs an instance of DbContext options 
-        // to passoptions override OnConfiguring method or through contructor
+        // to pass options override OnConfiguring method or through contructor
         // options must be passed to the base class
         public AppDBContex(DbContextOptions<AppDBContex> options):base(options)
         {
@@ -18,5 +18,7 @@ namespace Elephantico.Models
 
         // EF knows about the Elephaitem type and will create the coresponding table in the db elephaitems
         public DbSet<Elephaitem> Elephaitems { get; set; }
+
+        public DbSet<Feedback> Feedbacks { get; set; }
     }
 }

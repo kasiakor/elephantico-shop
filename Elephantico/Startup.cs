@@ -26,11 +26,11 @@ namespace Elephantico
         {
 
             services.AddDbContext<AppDBContex>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            // we dont need to create an instance of the repository in the code, we can register the intefrace here
+            // we dont need to create an instance of the repository in the code, we can register the inteface here
             // the instance of the repository will be served when requested in the code
-            // AddTransiet wheneever an instance asked for IER a new Mockup repository will be returned
+            // AddTransiet whenever an instance asked for IER a new repository will be returned
             services.AddTransient<IElephaitemRepository, ElephaitemRepository>();
-
+            services.AddTransient<IFeedbackRepository, FeedbackRepository>();
             // enable MVC
             services.AddMvc();
            
