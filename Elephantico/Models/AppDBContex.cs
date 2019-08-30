@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,9 @@ using System.Threading.Tasks;
 
 namespace Elephantico.Models
 {
-    public class AppDBContex : DbContext
+    //through AppDbC we will be able to work with the type user, we can add it by IdentityDbC
+    //default type for the user is IdentityUser
+    public class AppDBContex : IdentityDbContext<IdentityUser>
     {
         // DbContext needs an instance of DbContext options 
         // to pass options override OnConfiguring method or through contructor

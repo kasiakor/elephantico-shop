@@ -47,6 +47,7 @@ namespace Elephantico
             // support for static files, will retunr static files from wwwroot folder, these request can be handled by staticfiles like images request
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseAuthentication();
             // MVS middleware component
             app.UseMvc(routes =>
             {
